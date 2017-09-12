@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 
 class StatsData extends Component {
 
-  render() {
+ render() {
+
+function _handleOnClick() {
+  console.log("clicked");
+}
     return (
-      <button>Click me</button>
+      <button onClick={() => _handleOnClick()}>Click me</button>
     );
   }
 }
