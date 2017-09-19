@@ -14,3 +14,4 @@ function _handleOnClick() {
 }
 
 export default StatsData;
+
