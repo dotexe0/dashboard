@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
-
+// import ListOfCoins from './ListOfCoins';
 
 const SideBarNav = styled.nav`
   display: inline-block;
@@ -21,27 +21,28 @@ const SidebarList = styled.li`
     text-align: left;
 `;
 
-function _logThis() {
-  console.log('clicked');
+function _grabChartData() {
+  console.log('...grabbing chart data');
 }
+
+// const coins = (ListOfCoins) => { ListOfCoins.map((coin) => {<SidebarList>{Object.keys(coin)}</SidebarList>}) }
 
 const NavigationDashboard = () => {
   return (
     <div>
-      <h1>Hello Dashboard</h1>
       <NavSidebar className="sidebar">
-            <SidebarUl>
-                <SidebarList onClick={() => {_logThis()}}>Bitcoin</SidebarList>
-                <SidebarList>Ethereum</SidebarList>
-                <SidebarList>Litecoin</SidebarList>
-                <SidebarList>Monero</SidebarList>
-                <SidebarList>Neo</SidebarList>
-                <SidebarList>Golem</SidebarList>
-                <SidebarList>OmiseGO</SidebarList>
-                <SidebarList>Augur</SidebarList>
-                <SidebarList>BitcoinCash</SidebarList>
-            </SidebarUl>
-        </NavSidebar>
+        <SidebarUl>
+          <SidebarList onClick={() => {_grabChartData()}}>Bitcoin</SidebarList>
+          <SidebarList>Ethereum</SidebarList>
+          <SidebarList>Litecoin</SidebarList>
+          <SidebarList>Monero</SidebarList>
+          <SidebarList>Neo</SidebarList>
+          <SidebarList>Golem</SidebarList>
+          <SidebarList>OmiseGO</SidebarList>
+          <SidebarList>Augur</SidebarList>
+          <SidebarList>BitcoinCash</SidebarList>
+        </SidebarUl>
+      </NavSidebar>
     </div>
   )
 }
