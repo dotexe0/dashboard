@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-// import ListOfCoins from './ListOfCoins';
+import ListOfCoins from './ListOfCoins';
 
+//styled components
 const SideBarNav = styled.nav`
   display: inline-block;
   float: left;
@@ -13,34 +14,34 @@ const NavSidebar = styled.nav`
 
 const SidebarUl = styled.ul`
   float: left;
+  background-color: #46B3F2;
+  padding-right: 1em;
+  padding-left: 1em;
 `;
 const SidebarList = styled.li`
     text-transform: uppercase;
     margin-top: 20px;
     list-style: none;
     text-align: left;
+    border-bottom: 5px solid #394648;
+    border-radius: 5px;
 `;
 
-function _grabChartData() {
-  console.log('...grabbing chart data');
+function _grabChartData(e) {
+  // e.preventDefault();
+  console.log('...grabbing chart data', e);
 }
 
-// const coins = (ListOfCoins) => { ListOfCoins.map((coin) => {<SidebarList>{Object.keys(coin)}</SidebarList>}) }
-
+// stateless component, renders list of coins to choose from
 const NavigationDashboard = () => {
+  // console.log(this.props);
   return (
     <div>
       <NavSidebar className="sidebar">
         <SidebarUl>
-          <SidebarList onClick={() => {_grabChartData()}}>Bitcoin</SidebarList>
-          <SidebarList>Ethereum</SidebarList>
-          <SidebarList>Litecoin</SidebarList>
-          <SidebarList>Monero</SidebarList>
-          <SidebarList>Neo</SidebarList>
-          <SidebarList>Golem</SidebarList>
-          <SidebarList>OmiseGO</SidebarList>
-          <SidebarList>Augur</SidebarList>
-          <SidebarList>BitcoinCash</SidebarList>
+        { Object.keys(ListOfCoins).map((coin, i) =>
+          <SidebarList key={i} onClick={ ()=> _grabChartData(this) }>{coin}</SidebarList>
+        )}
         </SidebarUl>
       </NavSidebar>
     </div>
