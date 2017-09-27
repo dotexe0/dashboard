@@ -28,22 +28,33 @@ const SidebarList = styled.li`
 `;
 
 function _grabChartData(e) {
-  // e.preventDefault();
-  console.log('...grabbing chart data', e);
+  e.preventDefault();
+  console.log('...grabbing chart data', e.currentTarget.textContent);
+  // console.log('this.refs', props)
 }
 
 // stateless component, renders list of coins to choose from
-const NavigationDashboard = () => {
+const NavigationDashboard = (props) => {
   // console.log(this.props);
   return (
     <div>
       <NavSidebar className="sidebar">
         <SidebarUl>
         { Object.keys(ListOfCoins).map((coin, i) =>
-          <SidebarList key={i} onClick={ ()=> _grabChartData(this) }>{coin}</SidebarList>
+          <SidebarList key={i} onClick={ (e)=> _grabChartData(e) }>{coin}</SidebarList>
         )}
         </SidebarUl>
       </NavSidebar>
+      <table className="table table-hover">
+      <thead>
+        <tr>
+          <th>Twitter</th>
+          <th>Reddit</th>
+          <th>Facebook</th>
+          <th>Instagram</th>
+        </tr>
+      </thead>
+    </table>
     </div>
   )
 }
