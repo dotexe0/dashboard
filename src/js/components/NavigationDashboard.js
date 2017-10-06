@@ -1,4 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as grabCoinData from '../actions';
+
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ListOfCoins from './ListOfCoins';
 
@@ -29,7 +33,10 @@ const SidebarList = styled.li`
 
 function _grabChartData(e) {
   e.preventDefault();
+  const link = e.currentTarget.textContent;
   console.log('...grabbing chart data', e.currentTarget.textContent);
+
+
   // console.log('this.refs', props)
 }
 
@@ -59,4 +66,8 @@ const NavigationDashboard = (props) => {
   )
 }
 
-export default NavigationDashboard;
+const mapStateToProps = state => {
+  return { state };
+}
+
+export default connect(null, { grabCoinData })(NavigationDashboard)
