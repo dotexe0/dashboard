@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as grabCoinData from '../actions';
+import { grabCoinData } from '../actions';
 
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -35,39 +35,44 @@ function _grabChartData(e) {
   e.preventDefault();
   const link = e.currentTarget.textContent;
   console.log('...grabbing chart data', e.currentTarget.textContent);
+  grabCoinData(link);
 
 
   // console.log('this.refs', props)
 }
 
 // stateless component, renders list of coins to choose from
-const NavigationDashboard = (props) => {
-  // console.log(this.props);
-  return (
-    <div>
-      <NavSidebar className="sidebar">
-        <SidebarUl>
-        { Object.keys(ListOfCoins).map((coin, i) =>
-          <SidebarList key={i} onClick={ (e)=> _grabChartData(e) }>{coin}</SidebarList>
-        )}
-        </SidebarUl>
-      </NavSidebar>
-      <table className="table table-hover">
-      <thead>
-        <tr>
-          <th>Twitter</th>
-          <th>Reddit</th>
-          <th>Facebook</th>
-          <th>Instagram</th>
-        </tr>
-      </thead>
-    </table>
-    </div>
-  )
+class NavigationDashboard extends Component {
+
+  render() {
+    console.log(this.state)
+    console.log(this.props);
+    return (
+      <div>
+        <NavSidebar className="sidebar">
+          <SidebarUl>
+          { Object.keys(ListOfCoins).map((coin, i) =>
+            <SidebarList key={i} onClick={ (e)=> _grabChartData(e) }>{coin}</SidebarList>
+          )}
+          </SidebarUl>
+        </NavSidebar>
+        <table className="table table-hover">
+        <thead>
+          <tr>
+            <th>Twitter</th>
+            <th>Reddit</th>
+            <th>Facebook</th>
+            <th>Instagram</th>
+          </tr>
+        </thead>
+      </table>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
-  return { state };
+  return { coins: state.coins  };
 }
 
-export default connect(null, { grabCoinData })(NavigationDashboard)
+export default connect(mapStateToProps, { grabCoinData })(NavigationDashboard)
