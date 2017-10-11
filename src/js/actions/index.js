@@ -2,8 +2,9 @@ import axios from 'axios';
 // import { browserHistory } from 'react-router';
 import { toastr } from 'react-redux-toastr';
 
+const TWITTER_API_KEY = '2e6b0068c28b39eed4603f6a64652f8e';
 const REDDIT_BASE_URI = `https://www.reddit.com/r`;
-
+const EXAMPLE_CALL = 'http://api.twittercounter.com/?apikey=e9335031a759f251ee9b4e2e6634e1c5&twitter_id=15160529'
 export const GRAB_COIN_DATA = 'GRAB_COIN_DATA';
 export const grabCoinData = value => async dispatch => {
   console.log('coin from action', value);
