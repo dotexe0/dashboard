@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { grabCoinData } from '../actions';
 
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ListOfCoins from './ListOfCoins';
 
@@ -17,7 +17,7 @@ class NavigationDashboard extends Component {
       e.preventDefault();
       const link = e.currentTarget.textContent;
       console.log('...grabbing chart data', e.currentTarget.textContent);
-      grabCoinData(link);
+      this.props.grabCoinData(link);
     }
 
     return (
@@ -52,10 +52,10 @@ export default connect(mapStateToProps, { grabCoinData })(NavigationDashboard)
 
 
 //styled components
-const SideBarNav = styled.nav`
-display: inline-block;
-float: left;
-`;
+// const SideBarNav = styled.nav`
+// display: inline-block;
+// float: left;
+// `;
 
 const NavSidebar = styled.nav`
 float: left;

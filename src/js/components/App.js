@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import Table from '../components/Table';
 import NavigationDashboard from '../components/NavigationDashboard';
 import Chart from '../components/Chart';
-import logo from '../../assets/logo.svg';
+// import logo from '../../assets/logo.svg';
 import '../../css/App.css';
 
 class App extends Component {
