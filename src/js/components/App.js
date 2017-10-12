@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 // import Table from '../components/Table';
 import NavigationDashboard from '../components/NavigationDashboard';
 import Chart from '../components/Chart';
+import ReduxToastr from 'react-redux-toastr';
+// import 'react-redux-toastr/src/styles/index';
 // import logo from '../../assets/logo.svg';
 import '../../css/App.css';
 
@@ -50,9 +52,20 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <link href="http://diegoddox.github.io/react-redux-toastr/7.1/react-redux-toastr.min.css" rel="stylesheet" type="text/css" />
+        <ReduxToastr
+        timeOut={4000}
+        newestOnTop={false}
+        preventDuplicates
+        position="top-left"
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
+        progressBar
+      />
         <h2>CryptoCommunity</h2>
         <NavigationDashboard />
         <Chart chartData={this.state.chartData} legendPosition="bottom"/>
+
       </div>
     );
   }
