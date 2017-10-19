@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ListOfCoins from '../components/ListOfCoins';
 // import { browserHistory } from 'react-router';
 import { toastr } from 'react-redux-toastr';
 
@@ -8,11 +9,13 @@ const TWITTER_URI = `http://api.twittercounter.com/?apikey=${TWITTER_API_KEY}&tw
 
 export const GRAB_COIN_DATA = 'GRAB_COIN_DATA';
 export const grabCoinData = value => async dispatch => {
-  console.log('coin from action', value);
+  // console.log('coin from action', value);
 
   try {
-    const res = await axios.get(`${REDDIT_BASE_URI}/${value}/about.json`);
-      dispatch({ type: GRAB_COIN_DATA, payload: res.data });
+    const res_reddit = await axios.get(`${REDDIT_BASE_URI}/${value}/about.json`);
+    const res_twitter = await axios.get(`${TWITTER_URI}${ListOfCoins[value].twitterID}`);
+
+      dispatch({ type: GRAB_COIN_DATA, payload: {reddit: res_reddit.data, twitter: res_twitter.data }});
       toastr.success(`Data successfully retrieved for ${value}`)
   } catch (e) {
     toastr.error(`Error grabbing ${value} data!`);
