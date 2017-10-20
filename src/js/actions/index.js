@@ -15,7 +15,14 @@ export const grabCoinData = value => async dispatch => {
     const res_reddit = await axios.get(`${REDDIT_BASE_URI}/${value}/about.json`);
     const res_twitter = await axios.get(`${TWITTER_URI}${ListOfCoins[value].twitterID}`);
 
-      dispatch({ type: GRAB_COIN_DATA, payload: {reddit: res_reddit.data, twitter: res_twitter.data }});
+      dispatch({ type: GRAB_COIN_DATA,
+        payload:
+          {
+            value,
+            reddit: res_reddit.data,
+            twitter: res_twitter.data
+        }
+      });
       toastr.success(`Data successfully retrieved for ${value}`)
   } catch (e) {
     toastr.error(`Error grabbing ${value} data!`);
