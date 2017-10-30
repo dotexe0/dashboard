@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { grabCoinData } from '../actions';
 
+import { Button } from 'antd';
 // import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ListOfCoins from './ListOfCoins';
@@ -39,6 +40,7 @@ class NavigationDashboard extends Component {
           </tr>
         </thead>
       </table>
+      <Button type="danger">Submit</Button>
       </div>
     )
   }

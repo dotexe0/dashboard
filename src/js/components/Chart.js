@@ -1,72 +1,40 @@
-import React, {Component} from 'react';
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import React, { Component } from 'react';
+import { VictoryChart, VictoryLine, VictoryTheme } from 'victory';
 
 class Chart extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      chartData: props.chartData
-    }
-  }
 
-  // default values
-  static defaultProps = {
-    displayTitle: true,
-    displayLegend: true,
-    legendPosition: 'right',
+  componentDidMount() {
+
   }
 
   render() {
+
     return (
-      <div className="chart">
-        <Bar
-          data={this.state.chartData}
-          options={{
-            title:{
-              display:this.props.displayTitle,
-              text:'Community Strength',
-              fontSize:25
-            },
-            legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
-        />
-
-
-        <Line
-          data={this.state.chartData}
-          options={{
-            title:{
-              display:this.props.displayTitle,
-              text:'Community Strength',
-              fontSize:25
-            },
-            legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
-        />
-
-        <Pie
-          data={this.state.chartData}
-          options={{
-            title:{
-              display:this.props.displayTitle,
-              text:'Community Strength',
-              fontSize:25
-            },
-            legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
-        />
-      </div>
+      <VictoryChart
+      theme={VictoryTheme.material}
+      style={style.chart}
+      >
+      <VictoryLine
+        style={{
+          data: { stroke: "#c43a31" },
+          parent: { border: "1px solid #ccc"}
+        }}
+        data={[
+          { x: 1, y: 2 },
+          { x: 2, y: 3 },
+          { x: 3, y: 5 },
+          { x: 4, y: 4 },
+          { x: 5, y: 7 }
+        ]}
+      />
+    </VictoryChart>
     )
   }
 }
+
+const style = {
+  chart: {
+    height: '500px'
+}}
 
 export default Chart;

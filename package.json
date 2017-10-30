@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^2.13.7",
     "axios": "^0.16.2",
     "chart.js": "^2.7.0",
     "react": "^15.6.1",

@@ -8,46 +8,46 @@ import ReduxToastr from 'react-redux-toastr';
 import '../../css/App.css';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state = {
-      chartData: {}
-    }
-  }
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     chartData: {}
+  //   }
+  // }
 
-  componentWillMount(){
-    this.getChartData();
-  }
+  // componentWillMount(){
+  //   this.getChartData();
+  // }
 
-  getChartData(){
-    this.setState({
-      chartData: {
-        labels: ['Bitcoin', 'Ethereum', 'Litecoin', 'Ripple', 'Dash', 'NEM', 'IOTA', 'Monero', 'NEO'],
-        datasets:[
-          {
-            label:'Reddit Followers',
-            data:[
-              200000,
-              181045,
-              153060,
-              106519,
-              105162,
-              95072
-            ],
-            backgroundColor:[
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
-            ]
-          }
-        ]
-      }
-    });
-  }
+  // getChartData(){
+  //   this.setState({
+  //     chartData: {
+  //       labels: ['Bitcoin', 'Ethereum', 'Litecoin', 'Ripple', 'Dash', 'NEM', 'IOTA', 'Monero', 'NEO'],
+  //       datasets:[
+  //         {
+  //           label:'Reddit Followers',
+  //           data:[
+  //             200000,
+  //             181045,
+  //             153060,
+  //             106519,
+  //             105162,
+  //             95072
+  //           ],
+  //           backgroundColor:[
+  //             'rgba(255, 99, 132, 0.6)',
+  //             'rgba(54, 162, 235, 0.6)',
+  //             'rgba(255, 206, 86, 0.6)',
+  //             'rgba(75, 192, 192, 0.6)',
+  //             'rgba(153, 102, 255, 0.6)',
+  //             'rgba(255, 159, 64, 0.6)',
+  //             'rgba(255, 99, 132, 0.6)'
+  //           ]
+  //         }
+  //       ]
+  //     }
+  //   });
+  // }
 
   render() {
     return (
@@ -64,7 +64,7 @@ class App extends Component {
       />
         <h2>CryptoCommunity</h2>
         <NavigationDashboard />
-        <Chart chartData={this.state.chartData} legendPosition="bottom"/>
+        <Chart />
 
       </div>
     );

@@ -17,7 +17,7 @@ export default (state=initialState, action) => {
       console.log('coin data from reducer', action.payload);
       const { value, reddit, twitter } = action.payload;
 
-      if (value == 'Bitcoin') {
+      if (value === 'Bitcoin') {
         return {
           ...state,
           BTC: {
@@ -26,7 +26,7 @@ export default (state=initialState, action) => {
           }
         }
       }
-        if (value == 'Ethereum') {
+        if (value === 'Ethereum') {
           return {
             ...state,
             ETH: {
