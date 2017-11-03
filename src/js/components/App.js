@@ -50,6 +50,8 @@ class App extends Component {
   // }
 
   render() {
+    console.log('app', this.props);
+    console.log('app', this.state);
     return (
       <div className="App">
       <link href="http://diegoddox.github.io/react-redux-toastr/7.1/react-redux-toastr.min.css" rel="stylesheet" type="text/css" />
